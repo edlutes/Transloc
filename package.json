@@ -1,0 +1,21 @@
+{
+  "name": "Transloc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mock:api": "json-server --watch api/db.json --port 4000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edlutes/Transloc.git"
+  },
+  "keywords": [],
+  "author": "Ed Lutes <ed_lutes@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edlutes/Transloc/issues"
+  },
+  "homepage": "https://github.com/edlutes/Transloc#readme"
+}
