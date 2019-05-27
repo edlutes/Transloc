@@ -36,11 +36,11 @@ def ipv4():
     
     # Check if file exists first to avoid processing it again
     if (os.path.isfile(processed_data_file)):
-        print 'Re-using existing file'
+        print ('Re-using existing file')
         #file exists, reuse it
         df = pd.read_csv(processed_data_file, names=['longitude','latitude'])
     else:    
-        print 'I\'m working on something new'
+        print ('I\'m working on something new')
         df = panda_processing(starting_data_file)
         #TODO implement caching
         # Caching at this point would be ideal

@@ -65,7 +65,7 @@ def convert(process_file):
             try:
                 latitude, longitude = map(float, (latitude, longitude))
             except ValueError:
-                print "Couldn't convert this line : " , j
+                print ("Couldn't convert this line : " , j)
                 pass
 
             features.append(
@@ -76,7 +76,7 @@ def convert(process_file):
 
 
     collection = FeatureCollection(features)
-    print "I'm working on something!"
+    print ("I'm working on something!")
     
     with open("files/GeoObs.geojson", "w") as f:
         f.write('%s' % collection)
