@@ -1,9 +1,6 @@
 var map = L.map('map',{
     center: [35.87,-78.84],
     zoom: 11,
-    //minZoom: 2,
-    //maxZoom: 15,
-    //radius: 1,
     maxBounds:([[-90,-180],[90,180]]),
     worldCopyJump: true,
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -18,13 +15,13 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiZWx1dGVzIiwiYSI6ImNqdnlnMWYwazAycG40YmxjYzB0bzlhZzEifQ.DXfl1jtvxEfFrmqPdn7D6Q'
 }).addTo(map);
 
-//Read in the geoJSON
-
-$.getJSON("./files/GeoObs.geojson",function(data){
+// This works locally but not through a webserver
+// Need to host file somewhere....AWS S3?
+// Read in the geoJSON
+$.getJSON("../files/GeoObs.geojson",function(data){
     var locations = data.features.map(function(rat){
         var location = rat.geometry.coordinates;
         location.push(0.5);
-        //console.log(location)
         return location;
     });
 
@@ -33,7 +30,8 @@ $.getJSON("./files/GeoObs.geojson",function(data){
 
 });
 
-map.on('zoomstart', function(notused) {
-    console.log ("zooming");
-    //heat.
-})
+// Change scale while zooming?
+// map.on('zoomstart', function(notused) {
+//     console.log ("zooming");
+    
+// })

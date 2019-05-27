@@ -28,7 +28,7 @@ script_dir = os.path.dirname(__file__)
 starting_data_rel_path = "uploaded_data"
 starting_data_abs_path = os.path.join(script_dir, starting_data_rel_path)
 starting_data_file = starting_data_abs_path+'/'+"GeoLite2-City-Blocks-IPv4.csv"
-processed_data_rel_path = "files"
+processed_data_rel_path = "static/files"
 processed_data_abs_path = os.path.join(script_dir, processed_data_rel_path)
 processed_data_file = processed_data_abs_path+'/'+"latlong.csv"
 
@@ -57,7 +57,6 @@ def ipv4():
     
     return matching_results, 200
     
-#@app.route('/ipv4/boundary', function (req, res))
 # Takes in top left and bottom right coordinates to create a box
 # returns all coordinates within the created box
 # Does not auto populate data
