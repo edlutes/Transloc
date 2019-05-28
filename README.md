@@ -2,7 +2,9 @@
 
 ## Newest edit (5/28)
 
-  Partial GeoObs.geojson loaded to Heroku.  Actively fighting with file structure to get it to load
+  Partial GeoObs.geojson loaded to Heroku.  ~~Actively fighting with file structure to get it to load~~
+  
+  Needs to be uploaded elsewhere and referenced by heroku (Back to mlab/AWS idea)
 
    By reducing the dataset heroku app rest endpoints now work.  It's not ideal as it's not the full data set, but it does return something.
    
