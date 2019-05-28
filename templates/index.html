@@ -5,6 +5,7 @@
 
         <link href="{{ url_for('static', filename='css/leaflet.css') }}" type="text/css" rel=stylesheet>
         <link href="{{ url_for('static', filename='css/my_custom.css') }}" type="text/css"  rel=stylesheet>
+        <link href="{{ url_fore('static', filename='js/GeoObs.geojson') }}" type="text/json">
 
     </head>
 
@@ -23,6 +24,19 @@
         <script type = "text/javascript"
                 src = "{{ url_for('static', filename='js/my_map.js') }}"></script>                
 
+        <script>
+        $.getJSON("{{ url_for(GeoObs.geojson)}}",function(data){
+            var locations = data.features.map(function(rat){
+                var location = rat.geometry.coordinates;
+                location.push(0.5);
+                return location;
+            });
+
+            var heat = L.heatLayer(locations, {radius: 35}).addTo(map);
+            heat.addTo(map)
+
+        });
+        </script>
         
       </body>
 </html>
