@@ -80,7 +80,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 //   }
 // );
 
-$.getJSON("../files/GeoObs.geojson",function(data){
+$.getJSON("{{ url_for('static', filename='files/GeoObs.geojson') }}",function(data){
     var locations = data.features.map(function(rat){
         var location = rat.geometry.coordinates;
         location.push(0.5);
