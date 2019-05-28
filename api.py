@@ -11,7 +11,7 @@ from flask_restful import reqparse
 # Install Redis to help with caching?
 #from flask_cache import Cache
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 
 #app.config['MONGO_URI'] = "mongodb://testuser:Transloc@transloccluster-shard-00-00-fwvjk.mongodb.net:27017,transloccluster-shard-00-01-fwvjk.mongodb.net:27017,transloccluster-shard-00-02-fwvjk.mongodb.net:27017/test?ssl=true&replicaSet=TranslocCluster-shard-0&authSource=admin&retryWrites=true"
