@@ -2,6 +2,8 @@
 
 ## Newest edit (5/28)
 
+  Partial GeoObs.geojson loaded to Heroku.  Actively fighting with file structure to get it to load
+
    By reducing the dataset heroku app rest endpoints now work.  It's not ideal as it's not the full data set, but it does return something.
    
     $ curl https://gentle-harbor-41373.herokuapp.com/ipv4/box?coords=10.4,-12.12,19,4
