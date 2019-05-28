@@ -36,7 +36,7 @@ curl -H "Content-Type: application/json" -X POST - http://127.0.0.1:5000/upload/
 
 ~~2) Heroku can't find template/index.html~~
 
-3) Even if it does it'll run into the same problem as localhost
+3) Heroku doesn't have access to the geojson file either, so no heatmap
 4) File sizes are large...very large 
 5) AWS hosting for GeoObs.geojson doesn't seem to be working
 
