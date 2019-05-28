@@ -1,5 +1,15 @@
 # Transloc
 
+## Newest edit (5/28)
+
+   By reducing the dataset heroku app rest endpoints now work.  It's not ideal as it's not the full data set, but it does return something.
+   
+    $ curl https://gentle-harbor-41373.herokuapp.com/ipv4/box?coords=10.4,-12.12,19,4
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+    100   355  100   355    0     0   1075      0 --:--:-- --:--:-- --:--:--  1075{"key": [{"longitude": 13.2332, "latitude": -8.8368}, {"longitude": 11.5167, "latitude": 3.8667}, {"longitude": 15.3, "latitude": -4.3}, {"longitude": 15.2847, "latitude": -4.2592}, {"longitude": 13.2332, "latitude": -8.8368}, {"longitude": 11.5167, "latitude": 3.8667}, {"longitude": 15.3, "latitude": -4.3}, {"longitude": 15.2847, "latitude": -4.2592}]}
+
+
 ## Heroku app hosting
 
    https://gentle-harbor-41373.herokuapp.com/
