@@ -15,23 +15,64 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiZWx1dGVzIiwiYSI6ImNqdnlnMWYwazAycG40YmxjYzB0bzlhZzEifQ.DXfl1jtvxEfFrmqPdn7D6Q'
 }).addTo(map);
 
-// This works locally but not through a webserver
-// Need to host file somewhere....AWS S3?
-// Read in the geoJSON
-$.getJSON("../files/GeoObs.geojson",function(data){
-    var locations = data.features.map(function(rat){
-        var location = rat.geometry.coordinates;
-        location.push(0.5);
-        return location;
-    });
+// Attempt at pulling from AWS
+// console.log("wut?")
+// function pull_aws() {
+//     const aws = require('aws-sdk');
+//     const config = require('./config.json');
+//     (async function() {
+//         try{
+//             aws.config.setPromisesDependency();
+//             aws.config.update({
+//                 accessKeyId:config.aws.accessKey,
+//                 secretAccessKey: config.aws.secretKey
+//             });
 
-    var heat = L.heatLayer(locations, {radius: 35}).addTo(map);
-    heat.addTo(map)
+//             const s3 = new aws.S3();
+//             const response = await s3.listObjectsV2({
+//                 Bucket: 'lutestransloc'
+//             }).promise();
 
-});
+//             console.log(response);
 
-// Change scale while zooming?
-// map.on('zoomstart', function(notused) {
-//     console.log ("zooming");
+//         } catch (e){
+//             console.log('Uh oh', e);
+//         }
+//         debugger;
+//     })();
+// };
+
+var AWS = require('aws-sdk');
+AWS.config.update(
+  {
+    // These will be deleted shortly
+    accessKeyId: "AKIAJESJ6AUWDUBA67JQ",
+    secretAccessKey: "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",
+    region: 'us-east-1'
+  }
+);
+var s3 = new AWS.S3();
+s3.getObject(
+  { Bucket: "lutestransloc", Key: "GeoObs.geojson" },
+  function (error, data) {
+    if (error != null) {
+      alert("Failed to retrieve an object: " + error);
+    } else {
+      alert("Loaded " + data.ContentLength + " bytes");
+      // Not sure if this works and takes forever or is completely wrong
+      console.log(huh);
+      $.getJSON("../files/GeoObs.geojson",function(data){
+        var locations = data.features.map(function(rat){
+            var location = rat.geometry.coordinates;
+            location.push(0.5);
+            return location;
+        });
     
-// })
+        var heat = L.heatLayer(locations, {radius: 35}).addTo(map);
+        heat.addTo(map)
+    
+    });
+    }
+  }
+);
+

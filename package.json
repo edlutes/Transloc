@@ -20,6 +20,7 @@
   "homepage": "https://github.com/edlutes/Transloc#readme",
   "dependencies": {
     "ajax": "0.0.4",
+    "aws-sdk": "^2.463.0",
     "heatmap.js": "^2.0.5",
     "jquery": "^3.4.1",
     "pandas": "0.0.3"
