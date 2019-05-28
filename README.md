@@ -1,6 +1,10 @@
 # Transloc
 
-# How to use it as it stands
+## Heroku app hosting
+
+   https://gentle-harbor-41373.herokuapp.com/
+
+## How to use it as it stands
 
   "python api.py" 
 
@@ -19,14 +23,14 @@
   
 
 
-# REST endpoint examples:
+## REST endpoint examples:
 curl http://127.0.0.1:5000/ipv4
 
 curl http://127.0.0.1:5000/ipv4/box?coords=10.4,-12.12,19,4
 
 curl -H "Content-Type: application/json" -X POST - http://127.0.0.1:5000/upload/<filename_to_process>
 
-# Issues:
+## Issues:
 
 1) localhost:5000 can't load GeoObs.geojson which in turn leads to no heatmap
 
